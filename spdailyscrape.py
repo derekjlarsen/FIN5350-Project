@@ -292,6 +292,6 @@ dfNew = df2.rename(columns = {'level_1' : 'TickerSymbol'})
 ##dfNew.to_csv('datadaily.txt', sep= '\t', index = False)
 
 
-eng = create_engine('mssql+pyodbc://stephenbreeze:sbre8733@stairway.usu.edu/stephenbreeze?driver=SQL Server')
+eng = create_engine('mssql+pyodbc://fin5350:aggies2018@stairway.usu.edu/5350fin?driver=SQL Server')
 
 dfNew.to_sql('SP500_daily', eng, index = False, if_exists = 'append')
