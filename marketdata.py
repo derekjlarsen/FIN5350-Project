@@ -200,18 +200,18 @@ class MarketData(object):
     
     
     def default(self, ticker):
-        self.__spot =        (getSpot(ticker)) 
-        self.__rate = (getRate())
-        self.__volatility =  (getVol(ticker))
-        self.__dividend =   (getDiv())
+        self.__spot = getSpot(ticker) 
+        self.__rate = getRate()
+        self.__volatility = getVol(ticker)
+        self.__dividend = getDiv()
         return (self.__spot, self.__rate, self.__volatility, self.__dividend)
     
         
     def historic(self, ticker,date):
-        self.__spot =           (getSpotHistoric(ticker, date)) 
-        self.__rate =           (getRate())
-        self.__volatility =     (getVolHistoric(ticker, date))
-        self.__dividend =       (getDiv())
+        self.__spot = getSpotHistoric(ticker, date) 
+        self.__rate = getRate()
+        self.__volatility = getVolHistoric(ticker, date)
+        self.__dividend = getDiv()
         return (self.__spot, self.__rate, self.__volatility, self.__dividend)
     
     
