@@ -61,7 +61,7 @@ def getSpot(ticker):
                             return y[0]
                             break
                         except UnboundLocalError:
-                            print(Fore.RED + 'Oops! The results cannot be returned. /n The Ticker declared is invalid /n Try Ticker in all Caps surrounded by quotes\'\' for example: \'AAPL\' )
+                            print(Fore.RED + 'Oops! The results cannot be returned. /n The Ticker declared is invalid /n Try Ticker in all Caps surrounded by quotes\'\' for example: \'AAPL\'' )
                             break
                             
 def getVol(ticker):
