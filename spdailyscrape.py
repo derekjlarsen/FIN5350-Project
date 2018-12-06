@@ -277,8 +277,8 @@ ticker = ['IBM',
 'ZION',
 'ZTS']
 
-start = datetime.datetime.today() - timedelta(days=1)
-end = datetime.datetime.today() - timedelta(days=1)
+start = datetime.date.today() - timedelta(days=1)
+end = datetime.date.today() - timedelta(days=1)
 df = data.get_data_yahoo(ticker, start, end)
 
 ##stacks data so that it is in the proper format
