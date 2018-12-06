@@ -138,7 +138,7 @@ def getSpotHistoric(ticker,date):
             return y[0]
             break
         except UnboundLocalError:
-            print(Fore.RED + ' Oops! The results cannot be returned \n The Ticker or Date declared is invalid \n Try Ticker in all Caps surrounded by quotes\'\' for example: \'AAPL\' \n Make sure the date is in integer format yyyymmdd')
+            print(Fore.RED + ' Oops! The results cannot be returned \n The Ticker or Date declared is invalid \n Try Ticker in all Caps surrounded by quotes\'\' for example: \'AAPL\' \n Make sure the date is in integer format yyyymmdd \n The earliest date stored in the database is Jan 1 2012')
             break
             
 def getDiv():
