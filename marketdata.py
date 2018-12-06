@@ -1,5 +1,3 @@
-import colorama
-from colorama import Fore
 from bs4 import BeautifulSoup
 import urllib.request as urllib2
 import pyodbc
