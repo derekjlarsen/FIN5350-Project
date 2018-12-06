@@ -1,8 +1,12 @@
+import colorama
+from colorama import Fore
+from bs4 import BeautifulSoup
+import urllib.request as urllib2
+import pyodbc
+import datetime
+
 def getRate():
-    
-    from bs4 import BeautifulSoup
-    import urllib.request as urllib2
-    
+        
     url = "http://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield"
     content = urllib2.urlopen(url).read()
     soup = BeautifulSoup(content, "lxml")
@@ -17,11 +21,9 @@ def getRate():
     r = r3/100
     return r
 
-
-
-
 def getSpot(ticker):
-    import pyodbc 
+    import colorama
+    from colorama import Fore
     cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=stairway.usu.edu;DATABASE=5350FIN;UID=fin5350;PWD=aggies2018')
     
     cursor = cnxn.cursor()
@@ -61,13 +63,11 @@ def getSpot(ticker):
                             return y[0]
                             break
                         except UnboundLocalError:
-                            print("Oops! that ticker is not found in the database")
+                            print(Fore.RED + 'Oops! The results cannot be returned. /n The Ticker declared is invalid /n Try Ticker in all Caps surrounded by quotes\'\' for example: \'AAPL\' )
                             break
                             
 def getVol(ticker):
-    import pyodbc 
     cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=stairway.usu.edu;DATABASE=5350FIN;UID=fin5350;PWD=aggies2018')
-    
     cursor = cnxn.cursor()
     while True:
         try:
@@ -105,14 +105,11 @@ def getVol(ticker):
                             return y[1]
                             break
                         except UnboundLocalError:
-                            print("Oops! that ticker is not found in the database")
+                            print("")
                             break
                             
 def getVolHistoric(ticker,date):
-    import pyodbc 
-    import datetime
     cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=stairway.usu.edu;DATABASE=5350FIN;UID=fin5350;PWD=aggies2018')
-    
     cursor = cnxn.cursor()
     while True:
         try:
@@ -124,15 +121,14 @@ def getVolHistoric(ticker,date):
             return y[1]
             break
         except UnboundLocalError:
-            print('Oops ticker or date is invalid')
+            print('')
             break
             
             
 def getSpotHistoric(ticker,date):
-    import pyodbc 
-    import datetime
+    import colorama
+    from colorama import Fore
     cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=stairway.usu.edu;DATABASE=5350FIN;UID=fin5350;PWD=aggies2018')
-    
     cursor = cnxn.cursor()
     while True:
         try:
@@ -144,7 +140,7 @@ def getSpotHistoric(ticker,date):
             return y[0]
             break
         except UnboundLocalError:
-            print('Oops! ticker or date is invalid')
+            print(Fore.RED + 'Oops! The results cannot be returned. /n The Ticker or Date declared is invalid /n Try Ticker in all Caps surrounded by quotes\'\' for example: \'AAPL\' \n Make sure the date is in integer format yyyymmdd')
             break
             
 def getDiv():
