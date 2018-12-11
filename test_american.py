@@ -8,9 +8,10 @@ import numpy as np
 
 
 thedata = MarketData()
-thedata.historic('ZION', 20181011)
+#thedata.historic('ZION', 20181011)
+result = thedata.default('AAPL')
 expiry = 1.0 
-strike = 40.0
+strike = result[0] + 10 
 thecall = VanillaPayoff(expiry, strike, call_payoff)
 theput = VanillaPayoff(expiry, strike, put_payoff)
 
